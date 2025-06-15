@@ -35,4 +35,7 @@ Use the interactive mode to keep the container alive:
 ```bash
 sudo docker run -it ubuntu
 ```
+
+---
+
 ## 2. Create a Dockerfile for the Flask Application
