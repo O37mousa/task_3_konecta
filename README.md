@@ -39,3 +39,37 @@ sudo docker run -it ubuntu
 ---
 
 ## 2. Create a Dockerfile for the Flask Application
+
+# ⚙️ Docker Compose Summary – Flask + PostgreSQL
+
+This setup defines two services using Docker Compose:
+
+---
+
+## 🖥️ `web` (Flask App)
+- **Builds** from local `Dockerfile`
+- **Environment Variables**:
+  - `FLASK_APP`, `FLASK_RUN_HOST`, `FLASK_ENV`
+  - `DATABASE_URL` for PostgreSQL connection
+- **Ports**: Maps `5000` (host) to `5000` (container)
+- **Depends on**: `db` service (PostgreSQL)
+
+---
+
+## 🗄️ `db` (PostgreSQL)
+- **Uses** the official `postgres:latest` image
+- **Environment Variables**:
+  - `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`
+- **Volume**: Persists data using `db_data`
+
+---
+
+## 💾 Volume
+- `db_data`: Stores PostgreSQL data persistently
+
+---
+
+## 🚀 Usage
+- Start services: `docker-compose up --build`
+- Stop: `docker-compose down`
+
