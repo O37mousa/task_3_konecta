@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: flask_web
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_HOST=0.0.0.0
+      - FLASK_ENV=production
+      - DATABASE_URL=postgresql://postgres_user:admin@db:5432/mydatabase
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+
+  db:
+    image: postgres:15
+    # container_name: postgres_database
+    environment:
+      - POSTGRES_USER=postgres_user
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=mydatabase
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:
+  

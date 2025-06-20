@@ -1,0 +1,73 @@
+Docker Task:
+---
+
+Task:  
+1. 
+- Run container Ubuntu 
+- check the running container 
+- Explain Why cann't see the container 
+- How we can make the container to be UP and running
+
+
+
+2. Create a Dockerfile for the Flask Application (read the code carefully)
+- Use the given Python code to create a `Dockerfile` that:
+  - Containerizes the Flask app
+  - required package: `flask` 
+  - Make sure to Path the required ENV 
+
+---
+
+3. Create a Docker Compose File (`docker-compose.yml`)
+- Define two containers inside the **Docker Compose file:  
+  
+  1. Web Container
+     - Use the Dockerfile (do NOT build the image outside Docker Compose)  
+     - Ensure the web application build and run inside this Docker Compose
+     - pass the ENV var   
+  
+  2. PostgreSQL Container
+     - Use the official PostgreSQL image  
+     - Mount the database path `/var/lib/postgresql/data` outside the container to persist data  
+   
+- the web container should be able to reach the database container.  
+
+---
+
+4. Validate Container Communication  
+- After running docker-compose, access the web container and execute the following command:  
+  apt update && apt install -y postgresql-client && psql -h db -U user -d mydb
+  
+-Take a screenshot of the output.  
+
+---
+5. Verify the Web Application in the Browser  
+- Open the Flask web application in your browser (`http://localhost:5000`).  
+- Take a screenshot of the running application.  
+
+---  
+6- 
+What's the Diff between ARG and ENV in Docker file with Example
+
+----
+7- 
+- Create docker_file from nginx
+- Replace the default Nginx FE Page with "Free Palastine" 
+- Build and run the container you should see "Free Palastine" In browser
+- Push created Image to your private Docker Hub registry
+
+- Create a public GitHub repository.  
+- Upload the following files to the repository:  
+  - `app.py` (Flask application code)  
+  - `Dockerfile` (for the Flask app) 
+  - `requirement file` 
+  - `docker-compose.yml` (Docker Compose configuration) 
+  - Dockerfile for Free Palastine App
+  - Screenshots of:  
+     - The psql command output inside the container  
+     - The web application in the browser
+  - Add to the Md the instruction that you did 
+
+---
+ Bonus Challenge (Optional, Extra Points!)  
+- Add Nginx as a reverse proxy in the setup.  
