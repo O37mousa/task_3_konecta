@@ -9,6 +9,8 @@ services:
       - FLASK_RUN_HOST=0.0.0.0
       - FLASK_ENV=production
       - DATABASE_URL=postgresql://postgres_user:admin@db:5432/mydatabase
+      - APP_MESSAGE="Hello, This is Omar Mousa!!!"
+
     ports:
       - "5000:5000"
     depends_on:
@@ -30,4 +32,3 @@ services:
 
 volumes:
   db_data:
-  
